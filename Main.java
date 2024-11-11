@@ -1,3 +1,6 @@
+import FramePack.BasicsFrame;
+import FramePack.PurchaseFrame;
+
 import javax.swing.*;
 
 /**
@@ -41,26 +44,36 @@ import javax.swing.*;
     카카오나 토스 간편 결제 시스템에 대해서 검색
     일단 추후에 적용
 
+    ** 재실행 해도 좌석 정보가 유지하기 위한 일 **
+     1. java 로컬 만들기 ( 아마도 메모장(txt 파일)을 이용할 것 같음)
+     2. 24줄의 앞글자 데이터를 0인지 1인지 구분하여 데이터를 읽는다.
+     3. 앞글자에 따라서 버튼의 선택 유무가 달라짐. ( 0: 자리 있음 , 1: 자리 없음)
+        ( 몇 번째 단어인지 확인 하는 메소드가 필요 )
+     클릭한 버튼의 차례를 반환하고 반환한 수의 줄 앞자리를 반대로 바꿈.
+        => 방법 1.
+            버튼의 text를 생성된 자신의 번호로 text를 대입.
+            그리고 클릭하면 text를 반환하고 그에 맞는 줄의 정보를 반대로 바꿈.
+            쉽게 구현 가능. 하지만 디자인이 안 예쁨.
 
   SeatReservation
         │
         ├── Main.java
         │
         ├── FramePack
-        │    ├── Purchase.java
-        │    └── Basics.java
+        │    ├── PurchaseFrame.java
+        │    └── BasicsFrame.java
         │
         ├── UiPack
-        │    ├── MyButton.java
-        │    └── 예정
+        │    ├── BuyBtn.java
+        │    └── SelectBtn.java
         │
         └── ActionListenerPack
-             ├── MoveFrameBtn.java
-             └── SelectedBtn.java
+             ├── MoveFrameBtnAction.java
+             └── SelectedBtnAction.java
  */
 public class Main extends JFrame {
     public Main() {
-
+        new BasicsFrame();
     }
 
     public static void main(String[] args) {
