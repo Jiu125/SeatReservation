@@ -40,6 +40,14 @@ public class BasicsFrame extends JFrame {
 
     /**
      *  학교 내에 있는 어디 식당인 나타내는 제목 메소드이다.
+     *
+     * {@code @created} 2024-11-12
+     * {@code @lastModified}
+     *
+     * {@code @changelog}
+     * <ul>
+     *   <li>2024-11-12: 최초 생성</li>
+     * </ul>
      */
     private void showNorth() {
         Font font = new Font("Dialog",Font.BOLD,15);
@@ -53,6 +61,17 @@ public class BasicsFrame extends JFrame {
         add(northPanel, BorderLayout.NORTH);
     }
 
+    /**
+     *  학교 식당의 좌석 구조를 보여주는 메소드이다.
+     *
+     * {@code @created} 2024-11-12
+     * {@code @lastModified}
+     *
+     * {@code @changelog}
+     * <ul>
+     *   <li>2024-11-12: 최초 생성</li>
+     * </ul>
+     */
     private void showCenter() {
         mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(4, 6, 13, 42));
@@ -65,6 +84,17 @@ public class BasicsFrame extends JFrame {
         add(mainPanel, BorderLayout.CENTER);
     }
 
+    /**
+     *  하단에 구매 버튼을 나타내는 메소드이다.
+     *
+     * {@code @created} 2024-11-12
+     * {@code @lastModified}
+     *
+     * {@code @changelog}
+     * <ul>
+     *   <li>2024-11-12: 최초 생성</li>
+     * </ul>
+     */
     private void showSouth() {
         southPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 6, 5));
         buyBtn = new BuyBtn();
