@@ -1,9 +1,9 @@
-package src.FramePack;
+package FramePack;
 
-import src.ActionListenerPack.SelectedBtnAction;
-import src.SeatData.SeatDataManager;
-import src.UiPack.MakeBtn;
-import src.UiPack.SelectBtn;
+import UiPack.MakeBtn;
+import ActionListenerPack.SelectedBtnAction;
+import SeatData.SeatDataManager;
+import UiPack.SelectBtn;
 
 import javax.swing.*;
 import java.awt.*;
@@ -155,15 +155,14 @@ public class BasicsFrame extends JFrame {
 
     /**
      * 번 메소드입니다.
-     *
+     * <p>
      * {@code @created} 2024-11-16
      * {@code @lastModified}
-     *
+     * <p>
      * {@code @changelog}
      * <ul>
      *   <li>2024-11-09: 최초 생성</li>
      * </ul>
-     *
      */
     public static MakeBtn getBtn() {
         return frameMakeBtn;

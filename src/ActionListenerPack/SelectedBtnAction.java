@@ -1,8 +1,7 @@
-package src.ActionListenerPack;
+package ActionListenerPack;
 
-import src.UiPack.SelectBtn;
+import UiPack.SelectBtn;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

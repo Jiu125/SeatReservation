@@ -1,7 +1,7 @@
-package src.ActionListenerPack;
+package ActionListenerPack;
 
-import src.FramePack.PurchaseFrame;
-import src.UiPack.MakeBtn;
+import FramePack.PurchaseFrame;
+import UiPack.MakeBtn;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

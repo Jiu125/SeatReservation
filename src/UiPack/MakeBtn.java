@@ -1,4 +1,4 @@
-package src.UiPack;
+package UiPack;
 
 import src.ActionListenerPack.MakeFrameBtnAction;
 

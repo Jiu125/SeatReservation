@@ -1,7 +1,7 @@
-package src.FramePack;
+package FramePack;
 
-import src.UiPack.BuyBtn;
-import src.UiPack.MakeBtn;
+import UiPack.BuyBtn;
+import UiPack.MakeBtn;
 
 import javax.swing.*;
 import java.awt.*;

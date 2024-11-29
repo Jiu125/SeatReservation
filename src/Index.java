@@ -1,4 +1,4 @@
-import src.FramePack.BasicsFrame;
+import FramePack.BasicsFrame;
 
 import javax.swing.*;
 

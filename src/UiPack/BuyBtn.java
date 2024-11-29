@@ -1,6 +1,6 @@
-package src.UiPack;
+package UiPack;
 
-import src.ActionListenerPack.BuyTicketAction;
+import ActionListenerPack.BuyTicketAction;
 
 import javax.swing.*;
 
@@ -70,16 +70,13 @@ public class BuyBtn extends JButton {
      *
      * @author Ji Woo Park (gav705@naver.com)
      * @version v0.0.2
-     * @since
-     *
-     * {@code @created} 2024-11-18
+     * @since {@code @created} 2024-11-18
      * {@code @lastModified}
-     *
+     * <p>
      * {@code @changelog}
      * <ul>
      *   <li>2024-11-18: 최초 생성</li>
      * </ul>
-     *
      */
     public MakeBtn getOtherButton() {
         return otherBtn;

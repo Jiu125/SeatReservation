@@ -1,6 +1,6 @@
-package src.ActionListenerPack;
+package ActionListenerPack;
 
-import src.UiPack.BuyBtn;
+import UiPack.BuyBtn;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -54,6 +54,7 @@ public class BuyTicketAction implements ActionListener {
         this.buyBtn = buyBtn;
         this.targetFrame = frame;
     }
+
     /*
         정보를 가져오는지 확인하는 메소드입니다.
         테스트 메소드

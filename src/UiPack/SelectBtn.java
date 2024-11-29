@@ -1,6 +1,4 @@
-package src.UiPack;
-
-import src.ActionListenerPack.SelectedBtnAction;
+package UiPack;
 
 import javax.swing.*;
 import java.awt.*;

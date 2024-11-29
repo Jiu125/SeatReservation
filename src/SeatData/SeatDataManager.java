@@ -1,4 +1,4 @@
-package src.SeatData;
+package SeatData;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
