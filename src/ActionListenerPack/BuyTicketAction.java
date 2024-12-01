@@ -1,11 +1,14 @@
 package ActionListenerPack;
 
+import SeatData.SeatDataManager;
 import UiPack.BuyBtn;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
+
+import static FramePack.BasicsFrame.getSelectedButtons;
 
 /**
  * 결제와 취소 버튼의 기능 클래스입니다.
@@ -23,12 +26,6 @@ import java.util.Objects;
  * </ul>
  */
 public class BuyTicketAction implements ActionListener {
-    /*
-                   -- 예상 기능 --
-       1. 구매 패널(PurchaseFrame)에서 버튼을 누르면 기본 패널(BasicsFrame)로 이동
-       2. 버튼을 눌렀을 때 초록색 버튼의 갯수를 구함
-
-    */
     private final BuyBtn buyBtn;
     private final Frame targetFrame;
 
@@ -55,18 +52,19 @@ public class BuyTicketAction implements ActionListener {
         this.targetFrame = frame;
     }
 
-    /*
-        정보를 가져오는지 확인하는 메소드입니다.
-        테스트 메소드
-     */
     public void checkBtnText(BuyBtn btn) {
         if (Objects.equals(btn.getText(), "취소")) {
             System.out.println("취소하였습니다.");
         }
         else if (Objects.equals(btn.getText(), "결제")){
             System.out.println("구매하였습니다.");
+            purchaseSeats();
         }
+    }
 
+    private void purchaseSeats() {
+        SeatDataManager.purchaseSeats(getSelectedButtons());
+        getSelectedButtons().clear();
     }
 
     /**

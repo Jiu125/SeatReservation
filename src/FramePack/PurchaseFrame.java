@@ -1,5 +1,6 @@
 package FramePack;
 
+import SeatData.SeatDataManager;
 import UiPack.BuyBtn;
 import UiPack.MakeBtn;
 
@@ -28,6 +29,7 @@ public class PurchaseFrame extends JFrame {
     public PurchaseFrame() {
         setTitle("구매 창");
         setSize(400, 300);
+        setLocationRelativeTo(null);
 
         showLabel();
         showResult();

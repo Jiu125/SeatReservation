@@ -1,6 +1,6 @@
 package UiPack;
 
-import src.ActionListenerPack.MakeFrameBtnAction;
+import ActionListenerPack.MakeFrameBtnAction;
 
 import javax.swing.*;
 

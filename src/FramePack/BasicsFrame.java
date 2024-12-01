@@ -7,9 +7,8 @@ import UiPack.SelectBtn;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
+import java.util.List;
 
 /**
  * 자리를 선택하고 예약할 수 있는 기본 프레임 클래스입니다.
@@ -32,7 +31,7 @@ public class BasicsFrame extends JFrame {
     public SelectBtn seatBtn;
     public static MakeBtn frameMakeBtn;
     private SeatDataManager seatDataManager;
-    private Set<SelectBtn> selectedButtons = new HashSet<>();
+    private static Set<SelectBtn> selectedButtons = new HashSet<>();
 
     /**
      *  생성자 메소드입니다.
@@ -50,8 +49,9 @@ public class BasicsFrame extends JFrame {
      */
     public BasicsFrame() {
         setTitle("좌석 선택");
-        setSize(500, 500);
+        setSize(550, 550);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
 
         showNorth();
         showSouth();
@@ -115,17 +115,26 @@ public class BasicsFrame extends JFrame {
      * {@code @changelog}
      * <ul>
      *   <li>2024-11-12: 최초 생성</li>
+     *   <li>2024-11-30: 좌석 배치 </li>
+     *   <li>2024-12-01: 좌석 배치 개선</li>
      * </ul>
      */
     private void showCenter() {
+        seatDataManager = new SeatDataManager();
+
         mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(4, 6, 13, 42));
 
-        for (String seatKey : seatDataManager.getSeatMap().keySet()) {
+        // 좌석 키를 정렬
+        List<String> sortedKeys = new ArrayList<>(seatDataManager.getSeatMap().keySet());
+        sortedKeys.sort(Comparator.comparingInt(key -> Integer.parseInt(key.replace("좌석 ", ""))));
+
+        // 정렬된 키로 버튼 생성 및 추가
+        for (String seatKey : sortedKeys) {
             boolean isAvailable = seatDataManager.getSeatMap().get(seatKey);
-            SelectBtn seatButton = new SelectBtn(seatKey, isAvailable);
-            seatButton.addActionListener(new SelectedBtnAction(seatKey, seatButton, selectedButtons));
-            mainPanel.add(seatButton);
+            seatBtn = new SelectBtn(seatKey, isAvailable);
+            seatBtn.addActionListener(new SelectedBtnAction(seatKey, seatBtn, selectedButtons));
+            mainPanel.add(seatBtn);
         }
 
         add(mainPanel, BorderLayout.CENTER);
@@ -153,12 +162,16 @@ public class BasicsFrame extends JFrame {
         add(southPanel, BorderLayout.SOUTH);
     }
 
+
+
     /**
-     * 번 메소드입니다.
+     * 프레임의 MakeBtn 의 정보를 전달하는 접근자 메소드입니다.
+     *
      * <p>
      * {@code @created} 2024-11-16
      * {@code @lastModified}
      * <p>
+     *
      * {@code @changelog}
      * <ul>
      *   <li>2024-11-09: 최초 생성</li>
@@ -166,6 +179,22 @@ public class BasicsFrame extends JFrame {
      */
     public static MakeBtn getBtn() {
         return frameMakeBtn;
+    }
 
+    /**
+     * Set(selectedButtons) 의 접근자 메소드입니다.
+     *
+     * <p>
+     * {@code @created} 2024-12-01
+     * {@code @lastModified} 2024-12-01
+     * <p>
+     *
+     * {@code @changelog}
+     * <ul>
+     *   <li>2024-12-01: 최초 생성</li>
+     * </ul>
+     */
+    public static Set<SelectBtn> getSelectedButtons() {
+        return selectedButtons;
     }
 }
