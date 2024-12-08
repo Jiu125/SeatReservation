@@ -85,27 +85,30 @@ import javax.swing.*;
 
   SeatReservation
         │
-        ├── src.java.Index.java
+        ├── src.main.java
+        │       │
+        │       ├── com.Index.java
+        │       │
+        │       ├── SeatData
+        │       │    ├── SeatDataManager.java
+        │       │    └── SeatCondition.gson
+        │       │
+        │       ├── FramePack
+        │       │    ├── PurchaseFrame.java
+        │       │    └── BasicsFrame.java
+        │       │
+        │       ├── UiPack
+        │       │    ├── BuyBtn.java
+        │       │    ├── MakeBtn.java
+        │       │    └── SelectBtn.java
+        │       │
+        │       └── ActionListenerPack
+        │            ├── MakeFrameBtnAction.java
+        │            ├── BuyTicketAction.java
+        │            └── SelectedBtnAction.java
         │
-        ├── SeatData
-        │    ├── SeatDataManager.java
-        │    └── SeatCondition.gson
         │
-        ├── FramePack
-        │    ├── PurchaseFrame.java
-        │    └── BasicsFrame.java
-        │
-        ├── UiPack
-        │    ├── BuyBtn.java
-        │    ├── MakeBtn.java
-        │    └── SelectBtn.java
-        │
-        ├── ActionListenerPack
-        │    ├── MakeFrameBtnAction.java
-        │    ├── BuyTicketAction.java
-        │    └── SelectedBtnAction.java
-        │
-        └── pom.xml
+        └──────── pom.xml
  */
 public class Index extends JFrame {
     public Index() {

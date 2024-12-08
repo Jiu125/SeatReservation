@@ -29,7 +29,7 @@ import java.util.Timer;
  * </ul>
  */
 public class SeatDataManager {
-    private static final String FILE_PATH = "SeatData/Data/seat_data.json";
+    private static final String FILE_PATH = "src/main/java/SeatData/Data/seat_data.json";
     private static HashMap<String, Boolean> seatMap = new HashMap<>();
     private static Gson gson = new Gson();
 
