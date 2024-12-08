@@ -1,3 +1,5 @@
+package com;
+
 import FramePack.BasicsFrame;
 
 import javax.swing.*;
@@ -82,7 +84,7 @@ import javax.swing.*;
 
   SeatReservation
         │
-        ├── src.Index.java
+        ├── src.java.Index.java
         │
         ├── SeatData
         │    ├── SeatDataManager.java
@@ -97,10 +99,12 @@ import javax.swing.*;
         │    ├── MakeBtn.java
         │    └── SelectBtn.java
         │
-        └── ActionListenerPack
-             ├── MakeFrameBtnAction.java
-             ├── BuyTicketAction.java
-             └── SelectedBtnAction.java
+        ├── ActionListenerPack
+        │    ├── MakeFrameBtnAction.java
+        │    ├── BuyTicketAction.java
+        │    └── SelectedBtnAction.java
+        │
+        └── pom.xml
  */
 public class Index extends JFrame {
     public Index() {

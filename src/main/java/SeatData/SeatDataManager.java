@@ -29,7 +29,7 @@ import java.util.Timer;
  * </ul>
  */
 public class SeatDataManager {
-    private static final String FILE_PATH = "src/SeatData/Data/seat_data.json";
+    private static final String FILE_PATH = "SeatData/Data/seat_data.json";
     private static HashMap<String, Boolean> seatMap = new HashMap<>();
     private static Gson gson = new Gson();
 
@@ -97,7 +97,8 @@ public class SeatDataManager {
                 resetUnavailableSeats();;
             }
         } catch (IOException e) {
-            System.out.println("err");
+            initializeSeatData();
+            System.out.println("현재 loadSeatData() 가 문제임");
         }
 
     }
@@ -172,6 +173,7 @@ public class SeatDataManager {
             gson.toJson(seatMap, writer);
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("아니 saveSeatData() 가 문제임");
         }
     }
 

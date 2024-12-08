@@ -1,6 +1,5 @@
 package FramePack;
 
-import SeatData.SeatDataManager;
 import UiPack.BuyBtn;
 import UiPack.MakeBtn;
 
