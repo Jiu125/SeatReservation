@@ -17,6 +17,7 @@ import javax.swing.*;
  * {@code @changelog}
  * <ul>
  *   <li>2024-11-09: 최초 생성</li>
+ *   <li>2024-12-11: 배포 성공</li>
  * </ul>
  */
 
