@@ -197,4 +197,30 @@ public class BasicsFrame extends JFrame {
     public static Set<SelectBtn> getSelectedButtons() {
         return selectedButtons;
     }
+
+    /**
+     * Set(selectedButtons) 의 목록 접근자 메소드입니다.
+     *
+     * <p>
+     * {@code @created} 2024-12-09
+     * {@code @lastModified} 2024-12-09
+     * <p>
+     *
+     * {@code @changelog}
+     * <ul>
+     *   <li>2024-12-09: 최초 생성</li>
+     * </ul>
+     */
+    public static String getSelectedButtonsList() {
+        String list = "";
+
+        for (SelectBtn button : selectedButtons) {
+            list += button.getText() + ", ";
+//            System.out.println(list.length());
+//            System.out.println(list);
+        }
+        list = list.substring(0, list.length() - 2);
+
+        return list;
+    }
 }

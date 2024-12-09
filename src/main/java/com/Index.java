@@ -1,6 +1,7 @@
 package com;
 
 import FramePack.BasicsFrame;
+import FramePack.PurchaseFrame;
 
 import javax.swing.*;
 
@@ -112,7 +113,8 @@ import javax.swing.*;
  */
 public class Index extends JFrame {
     public Index() {
-        new BasicsFrame();
+//        new BasicsFrame();
+        new PurchaseFrame();
     }
 
     public static void main(String[] args) {
