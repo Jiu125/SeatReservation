@@ -19,6 +19,7 @@ import java.awt.*;
  * {@code @changelog}
  * <ul>
  *   <li>2024-11-11: 최초 생성</li>
+ *   <li>2024-12-10: 영수증 화면 생성</li>
  * </ul>
  */
 public class PurchaseFrame extends JFrame {
@@ -27,7 +28,7 @@ public class PurchaseFrame extends JFrame {
     BuyBtn buyBtn, cancelBtn;
     public PurchaseFrame() {
         setTitle("구매 창");
-        setSize(400, 600);
+        setSize(400, 480);
         setLocationRelativeTo(null);
 
         showLabel();
@@ -74,8 +75,13 @@ public class PurchaseFrame extends JFrame {
      * <ul>
      */
     private void showResult() {
-//        int seatNum = BasicsFrame.getSelectedButtons().size();
-//        String list = BasicsFrame.getSelectedButtonsList();
+        int seatNum = BasicsFrame.getSelectedButtons().size();
+        int totalPrice= seatNum * 6000;
+        int suttax = (int) (seatNum * 0.1 * 6000);
+        int supplyPrice = totalPrice - suttax;
+
+
+        String list = BasicsFrame.getSelectedButtonsList();
 
 
         resultPanel = new JPanel();
@@ -90,7 +96,7 @@ public class PurchaseFrame extends JFrame {
                 "    <style>" +
                 "        body {" +
                 "            font-family: 'Arial', sans-serif;" +
-                "            margin: 20px;" +
+                "            margin: 10px;" +
                 "            width: 300px;" +
                 "        }" +
                 "        .receipt {" +
@@ -104,7 +110,7 @@ public class PurchaseFrame extends JFrame {
                 "            font-weight: bold;" +
                 "        }" +
                 "        .receipt-section {" +
-                "            margin-top: 5px;" +
+                "            margin-top: 1px;" +
                 "            margin-bottom: 5px;" +
                 "        }" +
                 "        .receipt-section div {" +
@@ -112,6 +118,7 @@ public class PurchaseFrame extends JFrame {
                 "            justify-content: space-between;" +
                 "        }" +
                 "        .line {" +
+                "            margin-top: 5px;" +
                 "            border-top: 1px dashed #000;" +
                 "        }" +
                 "        .total {" +
@@ -122,64 +129,50 @@ public class PurchaseFrame extends JFrame {
                 "<body>" +
                 "    <div class=\"receipt\">" +
                 "        <div class=\"receipt-header\">" +
-                "            소공점" +
+                "            영수증" +
                 "        </div>" +
                 "        <div class=\"receipt-section\">" +
-                "            <div>사업자번호: 2023011794</div>" +
-                "            <div>성명: 박지우</div>" +
-                "            <div>주소: 충청북도 청주시 청원구 대성로 298</div>" +
-                "            <div>전화: 010-4073-1235</div>" +
-                "            <div>일자: 2018-04-25 10:12:12</div>" +
+                "            <div>사업자번호:&nbsp;&nbsp;2023011794</div>" +
+                "            <div>성명:&nbsp;&nbsp;박지우</div>" +
+                "            <div>주소:&nbsp;&nbsp;충청북도 청주시 청원구 대성로 298</div>" +
+                "            <div>전화:&nbsp;&nbsp;010-4073-1235</div>" +
+                "            <div>일자:&nbsp;&nbsp;2018-04-25 10:12:12</div>" +
                 "        </div>" +
                 "        <div class=\"line\"></div>" +
                 "        <div class=\"receipt-section\">" +
                 "            <div style=\"font-weight: bold;\">" +
-                "                <span>품명&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>" +
-                "                <span>단가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>" +
-                "                <span>수량&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>" +
-                "                <span>금액</span>" +
+                "                <span>품&nbsp;명&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>" +
+                "                <span>단&nbsp;가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>" +
+                "                <span>수&nbsp;량&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>" +
+                "                <span>금&nbsp;액</span>" +
                 "            </div>" +
                 "        <div class=\"line\"></div>" +
                 "            <div>" +
-                "                <span>복숭아 아이스티</span>" +
-                "                <span>2,500</span>" +
-                "                <span>1</span>" +
-                "                <span>2,500</span>" +
+                "                <span>좌석&nbsp;티켓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>" +
+                "                <span>6000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>" +
+                "                <span>%2d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>" +
+                "                <span>%4d</span>" +
                 "            </div>" +
                 "        </div>" +
                 "        <div class=\"line\"></div>" +
                 "        <div class=\"receipt-section\">" +
                 "            <div>" +
-                "                <span>공급가액:</span>" +
-                "                <span>2,273</span>" +
+                "                <span>공급가액:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>" +
+                "                <span>%4d</span>" +
                 "            </div>" +
                 "            <div>" +
-                "                <span>부가세:</span>" +
-                "                <span>227</span>" +
+                "                <span>부가세:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>" +
+                "                <span>%4d</span>" +
                 "            </div>" +
                 "        </div>" +
                 "        <div class=\"line\"></div>" +
                 "        <div class=\"receipt-section total\">" +
-                "            청구금액: 2,500" +
+                "            청구금액:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                        "%4d" +
                 "        </div>" +
                 "    </div>" +
                 "</body>" +
-                "</html>");
-//        String temp = String.format(
-//                "<html><body style='text-align:center;'>" +
-//                "--------------------------------------------------------------------------------<br/>" +
-//                "상&nbsp;&nbsp;&nbsp;&nbsp;품&nbsp;&nbsp;&nbsp;&nbsp;명&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-//                        "단&nbsp;&nbsp;&nbsp;가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;수&nbsp;&nbsp;&nbsp;량&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-//                        "금&nbsp;&nbsp;&nbsp;액<br/>" +
-//                "--------------------------------------------------------------------------------<br/>" +
-//                "좌석 티켓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-//                        "6,000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-//                        "%2d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-//                        "%d<br/>" +
-//                "--------------------------------------------------------------------------------<br/>" +
-//                "고객님이 선택하신 좌석은 N번 좌석 입니다.<br/>" +
-//                "선택한 총 좌석 가격(좌석당 가격: 6,000원): N * 6000 " +
-//                "</body></html>", 1, 6000 * 1);
+                "</html>",seatNum , totalPrice, supplyPrice, suttax, totalPrice);
         resultLabel.setText(temp);
 //        System.out.println(BasicsFrame.getSelectedButtonsList());
 //        resultLabel.setText("좌석 당 가격: 6000원\n 선택한 좌석( 1, 2, 8 )\n 총 가격: 18,000원");

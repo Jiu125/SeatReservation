@@ -113,8 +113,8 @@ import javax.swing.*;
  */
 public class Index extends JFrame {
     public Index() {
-//        new BasicsFrame();
-        new PurchaseFrame();
+        new BasicsFrame();
+//        new PurchaseFrame();
     }
 
     public static void main(String[] args) {

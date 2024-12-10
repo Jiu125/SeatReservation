@@ -216,8 +216,6 @@ public class BasicsFrame extends JFrame {
 
         for (SelectBtn button : selectedButtons) {
             list += button.getText() + ", ";
-//            System.out.println(list.length());
-//            System.out.println(list);
         }
         list = list.substring(0, list.length() - 2);
 
