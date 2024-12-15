@@ -18,12 +18,13 @@ import java.util.List;
  * @since
  *
  * {@code @created} 2024-11-11
- * {@code @lastModified}
+ * {@code @lastModified} 2024-12-02
  *
  * {@code @changelog}
  * <ul>
  *   <li>2024-11-11: 최초 생성</li>
  *   <li>2024-11-11: 좌석 버튼과 구매 버튼 생성</li>
+ *   <li>2024-12-02: 구매 기능 생성</li>
  * </ul>
  */
 public class BasicsFrame extends JFrame {
@@ -36,11 +37,8 @@ public class BasicsFrame extends JFrame {
     /**
      *  생성자 메소드입니다.
      *
-     * @version v0.0.2
-     * @since
-     *
      * {@code @created} 2024-11-11
-     * {@code @lastModified}
+     * {@code @lastModified} 2024-12-02
      *
      * {@code @changelog}
      * <ul>
@@ -61,33 +59,10 @@ public class BasicsFrame extends JFrame {
     }
 
     /**
-     * 초기화나 다른 Static 을 대신하기 위해서 사용하는 메소드 입니다.
-     *
-     * @version v0.0.2
-     * @since
-     *
-     * {@code @created} 2024-11-11
-     * {@code @lastModified}
-     *
-     * {@code @changelog}
-     * <ul>
-     *   <li>2024-11-11: 최초 생성</li>
-     * </ul>
-     *
-     * @param reset 상태를 확인하는 변수
-     *
-     */
-    public BasicsFrame(String reset) {
-        if (Objects.equals(reset, "btn")) {
-            this.frameMakeBtn = new MakeBtn();
-        }
-    }
-
-    /**
      *  학교 내에 있는 어디 식당인 나타내는 제목 메소드이다.
      *
      * {@code @created} 2024-11-12
-     * {@code @lastModified}
+     * {@code @lastModified} 2024-11-29
      *
      * {@code @changelog}
      * <ul>
@@ -110,7 +85,7 @@ public class BasicsFrame extends JFrame {
      *  학교 식당의 좌석 구조를 보여주는 메소드이다.
      *
      * {@code @created} 2024-11-12
-     * {@code @lastModified}
+     * {@code @lastModified} 2024-12-02
      *
      * {@code @changelog}
      * <ul>
@@ -144,7 +119,7 @@ public class BasicsFrame extends JFrame {
      *  하단에 구매 버튼을 나타내는 메소드이다.
      *
      * {@code @created} 2024-11-12
-     * {@code @lastModified}
+     * {@code @lastModified} 2024-11-29
      *
      * {@code @changelog}
      * <ul>
@@ -167,11 +142,8 @@ public class BasicsFrame extends JFrame {
     /**
      * 프레임의 MakeBtn 의 정보를 전달하는 접근자 메소드입니다.
      *
-     * <p>
      * {@code @created} 2024-11-16
-     * {@code @lastModified}
-     * <p>
-     *
+     * {@code @lastModified} 2024-11-29
      * {@code @changelog}
      * <ul>
      *   <li>2024-11-09: 최초 생성</li>
@@ -186,7 +158,7 @@ public class BasicsFrame extends JFrame {
      *
      * <p>
      * {@code @created} 2024-12-01
-     * {@code @lastModified} 2024-12-01
+     * {@code @lastModified} 2024-12-02
      * <p>
      *
      * {@code @changelog}
@@ -214,6 +186,7 @@ public class BasicsFrame extends JFrame {
     public static String getSelectedButtonsList() {
         String list = "";
 
+        // 좌석(번호) 뒤에 ', ' 를 추가
         for (SelectBtn button : selectedButtons) {
             list += button.getText() + ", ";
         }

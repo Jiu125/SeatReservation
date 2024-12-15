@@ -20,7 +20,7 @@ import java.util.Timer;
  * @since
  *
  * {@code @created} 2024-11-28
- * {@code @lastModified}
+ * {@code @lastModified} 2024-12-08
  *
  * {@code @changelog}
  * <ul>
@@ -36,12 +36,8 @@ public class SeatDataManager {
     /**
      * 좌석 데이터를 관리하는 클래스 생성자 입니다.
      *
-     * @author Ji Woo Park (gav705@naver.com)
-     * @version v0.0.2
-     * @since
-     *
      * {@code @created} 2024-11-29
-     * {@code @lastModified}
+     * {@code @lastModified} 2024-11-29
      *
      * {@code @changelog}
      * <ul>
@@ -55,12 +51,8 @@ public class SeatDataManager {
     /**
      * HashMap 의 접근자 메소드 입니다.
      *
-     * @author Ji Woo Park (gav705@naver.com)
-     * @version v0.0.2
-     * @since
-     *
      * {@code @created} 2024-11-29
-     * {@code @lastModified}
+     * {@code @lastModified} 2024-11-29
      *
      * {@code @changelog}
      * <ul>
@@ -74,16 +66,14 @@ public class SeatDataManager {
     /**
      * 좌석 데이터를 불러오는 메소드 입니다.
      *
-     * @author Ji Woo Park (gav705@naver.com)
-     * @version v0.0.2
-     * @since
-     *
      * {@code @created} 2024-11-29
-     * {@code @lastModified}
+     * <br>
+     * {@code @lastModified} 2024-12-08
      *
      * {@code @changelog}
      * <ul>
      *   <li>2024-11-29: 최초 생성</li>
+     *   <li>2024-12-08: 좌석 설정 기능 생성</li>
      * </ul>
      */
     private void loadSeatData() {
@@ -111,7 +101,8 @@ public class SeatDataManager {
      * @since
      *
      * {@code @created} 2024-11-30
-     * {@code @lastModified}
+     * <br>
+     * {@code @lastModified} 2024-12-02
      *
      * {@code @changelog}
      * <ul>
@@ -133,7 +124,8 @@ public class SeatDataManager {
      * @since
      *
      * {@code @created} 2024-11-30
-     * {@code @lastModified}
+     * <br>
+     * {@code @lastModified} 2024-12-02
      *
      * {@code @changelog}
      * <ul>
@@ -161,7 +153,8 @@ public class SeatDataManager {
      * @since
      *
      * {@code @created} 2024-11-30
-     * {@code @lastModified}
+     * <br>
+     * {@code @lastModified} 2024-12-02
      *
      * {@code @changelog}
      * <ul>
@@ -173,7 +166,7 @@ public class SeatDataManager {
             gson.toJson(seatMap, writer);
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("아니 saveSeatData() 가 문제임");
+            System.out.println("err");
         }
     }
 
@@ -186,7 +179,8 @@ public class SeatDataManager {
      *
      * <p>
      * {@code @created} 2024-12-01
-     * {@code @lastModified}
+     * <br>
+     * {@code @lastModified} 2024-12-02
      * <p>
      *
      * {@code @changelog}

@@ -16,10 +16,10 @@ import static FramePack.BasicsFrame.getSelectedButtons;
  *
  * @author Ji Woo Park (gav705@naver.com)
  * @version v0.0.2
- * @since
+ * @since v1.0.0
  *
  * {@code @created} 2024-11-11
- * {@code @lastModified}
+ * {@code @lastModified} 2024-12-02
  *
  * {@code @changelog}
  * <ul>

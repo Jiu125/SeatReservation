@@ -11,11 +11,11 @@ import java.util.Set;
  * 좌석 버튼에 대한 액션리스너 클래스입니다.
  *
  * @author Ji Woo Park (gav705@naver.com)
- * @version v0.0.2
- * @since
+ * @version v1.0.0
+ * @since v0.0.2
  *
  * {@code @created} 2024-11-11
- * {@code @lastModified}
+ * {@code @lastModified} 2024-11-29
  *
  * {@code @changelog}
  * <ul>
@@ -37,7 +37,7 @@ public class SelectedBtnAction implements ActionListener {
      * 배경색을 바꿔주는 AtctionListener 메소드 입니다.
      *
      * {@code @created} 2024-11-11
-     * {@code @lastModified}
+     * {@code @lastModified} 2024-11-29
      *
      * {@code @changelog}
      * <ul>

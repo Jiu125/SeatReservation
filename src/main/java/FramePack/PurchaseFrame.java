@@ -10,11 +10,11 @@ import java.awt.*;
  * 구매와 취소를 담당하는 프레임 클래스입니다.
  *
  * @author Ji Woo Park (gav705@naver.com)
- * @version v0.0.2
- * @since
- *
+ * @version v1.0.0
+ * @since v0.0.2
+ * <br>
  * {@code @created} 2024-11-11
- * {@code @lastModified}
+ * {@code @lastModified} 2024-12-10
  *
  * {@code @changelog}
  * <ul>
@@ -41,11 +41,8 @@ public class PurchaseFrame extends JFrame {
     /**
      * 결제하는 창을 알리는 label 을 나타내는 메소드입니다.
      *
-     * @version v0.0.2
-     * @since
-     *
      * {@code @created} 2024-11-16
-     * {@code @lastModified}
+     * {@code @lastModified} 2024-12-9
      *
      * {@code @changelog}
      * <ul>
@@ -60,13 +57,10 @@ public class PurchaseFrame extends JFrame {
     }
 
     /**
-     * 총 가격과 선택한 좌석을 나타내는 메소드입니다.
-     *
-     * @version v0.0.4
-     * @since
+     * 총 가격과 선택한 좌석(영수증)을 나타내는 메소드입니다.
      *
      * {@code @created} 2024-11-16
-     * {@code @lastModified}
+     * {@code @lastModified} 2024-12-10
      *
      * {@code @changelog}
      * <ul>
@@ -136,7 +130,8 @@ public class PurchaseFrame extends JFrame {
                 "            <div>성명:&nbsp;&nbsp;박지우</div>" +
                 "            <div>주소:&nbsp;&nbsp;충청북도 청주시 청원구 대성로 298</div>" +
                 "            <div>전화:&nbsp;&nbsp;010-4073-1235</div>" +
-                "            <div>일자:&nbsp;&nbsp;2018-04-25 10:12:12</div>" +
+                "            <div>일자:&nbsp;&nbsp;2023-12-25 11:12</div>" +
+                "            <div>좌석:&nbsp;&nbsp;%s</div>" +
                 "        </div>" +
                 "        <div class=\"line\"></div>" +
                 "        <div class=\"receipt-section\">" +
@@ -172,10 +167,8 @@ public class PurchaseFrame extends JFrame {
                 "        </div>" +
                 "    </div>" +
                 "</body>" +
-                "</html>",seatNum , totalPrice, supplyPrice, suttax, totalPrice);
+                "</html>",list, seatNum , totalPrice, supplyPrice, suttax, totalPrice);
         resultLabel.setText(temp);
-//        System.out.println(BasicsFrame.getSelectedButtonsList());
-//        resultLabel.setText("좌석 당 가격: 6000원\n 선택한 좌석( 1, 2, 8 )\n 총 가격: 18,000원");
 
         resultPanel.add(resultLabel);
 
@@ -185,11 +178,8 @@ public class PurchaseFrame extends JFrame {
     /**
      * 구매와 구매 취소 버튼을 나타내는 메소드입니다.
      *
-     * @version v0.0.2
-     * @since
-     *
      * {@code @created} 2024-11-16
-     * {@code @lastModified}
+     * {@code @lastModified} 2024-12-09
      *
      * {@code @changelog}
      * <ul>

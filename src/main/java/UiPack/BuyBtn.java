@@ -8,11 +8,11 @@ import javax.swing.*;
  * 결제와 취소 버튼의 디자인을 담당하는 버튼 클래스입니다.
  *
  * @author Ji Woo Park (gav705@naver.com)
- * @version v0.0.2
- * @since
+ * @version v1.0.0
+ * @since v0.0.4
  *
  * {@code @created} 2024-11-11
- * {@code @lastModified}
+ * {@code @lastModified} 2024-11-29
  *
  * {@code @changelog}
  * <ul>
@@ -25,12 +25,8 @@ public class BuyBtn extends JButton {
     /**
      * 결제, 취소 버튼의 생성자 메소드 입니다.
      *
-     * @author Ji Woo Park (gav705@naver.com)
-     * @version v0.0.2
-     * @since
-     *
      * {@code @created} 2024-11-11
-     * {@code @lastModified}
+     * {@code @lastModified} 2024-11-29
      *
      * {@code @changelog}
      * <ul>
@@ -47,13 +43,11 @@ public class BuyBtn extends JButton {
     /**
      * otherBtn 의 상태 설정자 메소드입니다.
      *
-     * @author Ji Woo Park (gav705@naver.com)
-     * @version v0.0.2
-     * @since
-     *
      * {@code @created} 2024-11-18
-     * {@code @lastModified}
+     *<br>
+     * {@code @lastModified} 2024-11-29
      *
+     *<br>
      * {@code @changelog}
      * <ul>
      *   <li>2024-11-18: 최초 생성</li>
@@ -68,10 +62,10 @@ public class BuyBtn extends JButton {
     /**
      * otherBtn 의 상태 접근자 메소드입니다.
      *
-     * @author Ji Woo Park (gav705@naver.com)
-     * @version v0.0.2
-     * @since {@code @created} 2024-11-18
-     * {@code @lastModified}
+     * {@code @created} 2024-11-18
+     *<br>
+     * {@code @lastModified} 2024-11-30
+     *<br>
      * <p>
      * {@code @changelog}
      * <ul>

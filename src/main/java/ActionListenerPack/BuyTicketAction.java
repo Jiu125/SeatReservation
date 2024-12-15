@@ -14,15 +14,16 @@ import static FramePack.BasicsFrame.getSelectedButtons;
  * 결제와 취소 버튼의 기능 클래스입니다.
  *
  * @author Ji Woo Park (gav705@naver.com)
- * @version v0.0.2
- * @since
+ * @version v1.0.0
+ * @since v0.0.2
  *
  * {@code @created} 2024-11-17
- * {@code @lastModified}
+ * {@code @lastModified} 2024-12-02
  *
  * {@code @changelog}
  * <ul>
  *   <li>2024-11-17: 최초 생성</li>
+ *   <li>2024-12-02: 결제 여부 확인 기능 추가</li>
  * </ul>
  */
 public class BuyTicketAction implements ActionListener {
@@ -32,12 +33,8 @@ public class BuyTicketAction implements ActionListener {
     /**
      * 결제와 취소 버튼의 기능 클래스 생성자 메소드입니다.
      *
-     * @author Ji Woo Park (gav705@naver.com)
-     * @version v0.0.2
-     * @since
-     *
      * {@code @created} 2024-11-18
-     * {@code @lastModified}
+     * {@code @lastModified} 2024-11-29
      *
      * {@code @changelog}
      * <ul>
@@ -52,35 +49,46 @@ public class BuyTicketAction implements ActionListener {
         this.targetFrame = frame;
     }
 
+    /**
+     * 취소하였을 때와 결제하였을 때 발생하는 이벤트 메소드입니다.
+     *
+     * {@code @created} 2024-11-18
+     * {@code @lastModified} 2024-11-29
+     *
+     * {@code @changelog}
+     * <ul>
+     *   <li>2024-11-18: 최초 생성</li>
+     *   <li>2024-12-02: 결제 여부 확인 기능 추가</li>
+     * </ul>
+     *
+     * @param btn '취소'와 '결제'를 버튼의 텍스트를 구분합니다.
+     */
     public void checkBtnText(BuyBtn btn) {
         if (Objects.equals(btn.getText(), "취소")) {
             System.out.println("취소하였습니다.");
         }
         else if (Objects.equals(btn.getText(), "결제")){
             System.out.println("구매하였습니다.");
-            purchaseSeats();
+            SeatDataManager.purchaseSeats(getSelectedButtons());
+            getSelectedButtons().clear();
         }
-    }
-
-    private void purchaseSeats() {
-        SeatDataManager.purchaseSeats(getSelectedButtons());
-        getSelectedButtons().clear();
     }
 
     /**
      * 버튼을 누르면 해당 프레임은 닫치고, buyBtn 의 상태를 활성화로 변경하는 메소드입니다.
      *
      * @author Ji Woo Park (gav705@naver.com)
-     * @version v0.0.2
-     * @since
+     * @version v1.0.0
+     * @since v0.0.2
      *
      * {@code @created} 2024-11-18
-     * {@code @lastModified}
+     * {@code @lastModified} 2024-11-29
      *
      * {@code @changelog}
      * <ul>
      *   <li>2024-11-18: 최초 생성</li>
      * </ul>
+     *
      * @param e 처리해야 할 이벤트입니다.
      */
     public void actionPerformed(ActionEvent e) {
