@@ -14,8 +14,8 @@ import java.util.List;
  * 자리를 선택하고 예약할 수 있는 기본 프레임 클래스입니다.
  *
  * @author Ji Woo Park (gav705@naver.com)
- * @version v0.0.2
- * @since
+ * @version v1.0.0
+ * @since v0.0.2
  *
  * {@code @created} 2024-11-11
  * {@code @lastModified} 2024-12-02

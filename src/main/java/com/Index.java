@@ -9,7 +9,7 @@ import javax.swing.*;
  *
  * @author Ji Woo Park (gav705@naver.com)
  * @version v1.0.0
- * @since
+ * @since v0.0.2
  *
  * {@code @created} 2024-11-09
  * {@code @lastModified} 2024-11-29

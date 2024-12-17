@@ -16,8 +16,8 @@ import java.util.Timer;
  * 좌석 데이터를 관리하는 클래스 입니다.
  *
  * @author Ji Woo Park (gav705@naver.com)
- * @version v0.0.2
- * @since
+ * @version v1.0.0
+ * @since v0.0.2
  *
  * {@code @created} 2024-11-28
  * {@code @lastModified} 2024-12-08

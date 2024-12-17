@@ -15,8 +15,8 @@ import static FramePack.BasicsFrame.getSelectedButtons;
  * 버튼을 누르면 결제 창이 생기는 클래스입니다.
  *
  * @author Ji Woo Park (gav705@naver.com)
- * @version v0.0.2
- * @since v1.0.0
+ * @version v1.0.0
+ * @since v0.0.2
  *
  * {@code @created} 2024-11-11
  * {@code @lastModified} 2024-12-02
