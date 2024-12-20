@@ -16,18 +16,9 @@
 
 ## 개요
 ### 1. 목적
-학교 내에는 다양한 학생들이 이용하는 여러 식당이 있습니다.  
-하지만 기존 식당의 키오스크에서는 식권만 구매할 수 있을 뿐, 
-좌석을 미리 예약하거나 지정하는 기능은 없었습니다. 
-이로 인해 식권 구매 후 빈자리를 찾아다니며 시간을 낭비하는 경우가 많았습니다.
-
-예를 들어, 인기 있는 점심시간에 식권을 구매한 뒤 자리를 찾으려면 식당을 한 바퀴 돌아야 하고,
-자리가 없으면 줄을 서서 기다려야 하는 불편함이 자주 발생했습니다. 
-이는 특히 시간이 제한된 학생들에게 큰 불편으로 다가옵니다.
-
-저는 이러한 문제를 해결하고자 식권 구매와 동시에 좌석을 예약할 수 있는 프로그램을 만들고자 합니다.  
-이를 통해 학생들이 자리를 찾는 시간을 절약하고, 식사 시간을 보다 효율적으로 활용할 수 있을 것입니다.  
-이 프로그램은 학생들에게 편리함과 만족감을 제공하며, 혼잡한 식당 환경을 개선하는 데도 기여할 것으로 기대됩니다.
+학교 식당에서 **식권 구매와 동시에 좌석을 예약**할 수 있는 시스템입니다.  
+학생들이 빈자리를 찾는 시간을 줄이고, 효율적인 식사 환경을 제공합니다.  
+이를 통해 **혼잡한 식당 문제를 개선**하고, **사용자 만족도를 높이는** 것이 목표입니다.
 
 ---
 
@@ -35,9 +26,9 @@
 이 프로그램의 대상은 학교 식당을 이용하는 모든 사람입니다.  
 학생뿐 아니라, 주변 지역 주민 등 외부 방문객도 포함됩니다.
 - **학생**
-- **교직원**
-- **외부 방문객**
-- **주변 지역 주민**
+- 교직원 (추후 개발 예정)
+- 외부 방문객 (추후 개발 예정)
+- 주변 지역 주민 (추후 개발 예정)
 
 ## 프로그램의 중요성 및 필요성
 ### 1. 중요성
@@ -119,36 +110,143 @@
 
 아래 흐름도는 프로그램의 수행 절차를 단계별로 시각화한 것입니다.
 
-```text
-[프로그램 시작] ──> [Index.main()]  
-                      │
-                      │ 생성
-                      ▼
-               [BasicsFrame 생성]
-                      │
-    ┌─────────────────┴─────────────────┐
-    │                                   │
-[좌석 버튼 선택]                   [구매 버튼 클릭]
-    │                                   │
-    ▼                                   ▼
-[SelectedBtnAction]            [BuyTicketAction]
-    │                                   │
-    │ 선택된 좌석 추가                     │ 좌석 선택 검증
-    │                                   │
-    │                                   ▼
-    └──> [SeatDataManager] ──────────> [구매 완료]
-                      │
-                      │ 저장 및 갱신
-                      ▼
-            [PurchaseFrame 생성]
-                      │
-                      │ 결과 출력
-                      ▼
-              [프로그램 종료]
+```mermaid
+graph TD
+    A[프로그램 시작 Index.main] --> B[BasicsFrame 생성]
+B --> C[SeatDataManager 초기화]
+B --> D[화면 구성: 버튼 및 패널 생성]
+D --> E[MakeBtn 클릭됨?]
+E -- 예 --> F[MakeFrameBtnAction 동작]
+F --> G[새로운 프레임 생성 좌석 선택]
+D --> H[SelectBtn 클릭됨?]
+H -- 예 --> I[SelectedBtnAction 동작]
+I --> J[선택된 버튼 리스트 업데이트]
+I --> K[SeatDataManager로 좌석 상태 관리]
+D --> L[BuyBtn 클릭됨?]
+L -- 예 --> M[BuyTicketAction 동작]
+M --> N[선택된 좌석 예약]
+N --> O[좌석 데이터 저장]
+O --> P[PurchaseFrame 결과 화면 표시]
+P --> Q[프로그램 종료]
+L -- 아니오 --> Q[프로그램 종료]
+H -- 아니오 --> Q[프로그램 종료]
+E -- 아니오 --> Q[프로그램 종료]
+
 ```
 ---
 ### 3. 클래스 다이어그램
 
 아래 흐름도는 프로그램의 클래스 다이어그램을 시각화한 것입니다.
+```mermaid
+classDiagram
+    direction TB
 
-![SeatReservationClassDiagrame.png](src%2Fimg%2FSeatReservationClassDiagrame.png)
+    class Index {
+        + main(String[]) void
+        + Index()
+    }
+
+    class BasicsFrame {
+        + getBtn() MakeBtn
+        + getSelectedButtons() Set~SelectBtn~
+        + getSelectedButtonsList() String
+        - showNorth() void
+        - showCenter() void
+        - showSouth() void
+        + BasicsFrame()
+        - Set~SelectBtn~ selectedButtons
+        # JPanel southPanel
+        # JPanel mainPanel
+        # JPanel northPanel
+        + SelectBtn seatBtn
+        + MakeBtn frameMakeBtn
+        - SeatDataManager seatDataManager
+    }
+
+    class MakeBtn {
+        + MakeBtn()
+    }
+
+    class BuyBtn {
+        + getOtherButton() MakeBtn
+        + setOtherButton(MakeBtn) void
+        + BuyBtn(JFrame)
+        - MakeBtn otherBtn
+    }
+
+    class BuyTicketAction {
+        + checkBtnText(BuyBtn) void
+        + actionPerformed(ActionEvent) void
+        + BuyTicketAction(BuyBtn, Frame)
+        - BuyBtn buyBtn
+        - Frame targetFrame
+    }
+
+    class MakeFrameBtnAction {
+        + actionPerformed(ActionEvent) void
+        + MakeFrameBtnAction()
+    }
+
+    class PurchaseFrame {
+        - showResult() void
+        - showButton() void
+        - showLabel() void
+        + PurchaseFrame()
+        ~ BuyBtn cancelBtn
+        ~ JPanel btnPanel
+        ~ JPanel labelPanel
+        ~ JLabel resultLabel
+        ~ BuyBtn buyBtn
+        ~ JPanel resultPanel
+    }
+
+    class SeatDataManager {
+        + saveSeatData() void
+        + getSeatMap() HashMap~String, Boolean~
+        + purchaseSeats(Set~SelectBtn~) void
+        + initializeSeatData() void
+        - loadSeatData() void
+        - resetUnavailableSeats() void
+        + SeatDataManager()
+        - String FILE_PATH
+        - Gson gson
+        - HashMap~String, Boolean~ seatMap
+    }
+
+    class SelectBtn {
+        + SelectBtn(String, boolean)
+    }
+
+    class SelectedBtnAction {
+        + actionPerformed(ActionEvent) void
+        + SelectedBtnAction(String, SelectBtn, Set~SelectBtn~)
+        - String seatKey
+        - Set~SelectBtn~ selectedButtons
+        - SelectBtn button
+    }
+
+%% Relationships
+    Index --> BasicsFrame : «create»
+
+    BasicsFrame --> MakeBtn : «create»
+    BasicsFrame "1" *--> "frameMakeBtn 1" MakeBtn
+    BasicsFrame "1" *--> "seatDataManager 1" SeatDataManager
+    BasicsFrame --> SeatDataManager : «create»
+    BasicsFrame "1" *--> "selectedButtons *" SelectBtn
+    BasicsFrame --> SelectBtn : «create»
+    BasicsFrame --> SelectedBtnAction : «create»
+
+    MakeBtn --> MakeFrameBtnAction : «create»
+    MakeFrameBtnAction --> PurchaseFrame : «create»
+
+    PurchaseFrame --> BuyBtn : «create»
+    PurchaseFrame "1" *--> "buyBtn 1" BuyBtn
+
+    BuyBtn --> BuyTicketAction : «create»
+    BuyBtn "1" *--> "otherBtn 1" MakeBtn
+    BuyTicketAction "1" *--> "buyBtn 1" BuyBtn
+
+    SelectedBtnAction "1" *--> "selectedButtons *" SelectBtn
+
+
+```

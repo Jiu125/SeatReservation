@@ -49,10 +49,10 @@ public class SelectedBtnAction implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (selectedButtons.contains(button)) {
             selectedButtons.remove(button); // 선택 해제
-            button.setBackground(Color.CYAN); // 기본 색상 복원
+            button.setBackground(new Color(71, 116, 149)); // 기본 색상 복원
         } else {
             selectedButtons.add(button); // 새로 선택
-            button.setBackground(Color.GREEN); // 선택 상태 표시
+            button.setBackground(new Color(204, 96, 88)); // 선택 상태 표시
         }
 
     }

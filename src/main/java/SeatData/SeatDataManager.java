@@ -196,7 +196,7 @@ public class SeatDataManager {
         for (SelectBtn button : buttonsToUpdate) {
             String seatKey = button.getText();
             seatMap.put(seatKey, false);
-            button.setBackground(Color.PINK);
+            button.setBackground(new Color(139, 66, 99));
             button.setEnabled(false);
         }
 
@@ -210,7 +210,7 @@ public class SeatDataManager {
                     for (SelectBtn button : buttonsToUpdate) {
                         String seatKey = button.getText();
                         seatMap.put(seatKey, true);
-                        button.setBackground(Color.CYAN);
+                        button.setBackground(new Color(71, 116, 149));
                         button.setEnabled(true);
                     }
                     saveSeatData();
