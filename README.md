@@ -26,8 +26,6 @@
 6. [출처](#출처)
 
 
-## 프로그램 소개
-
 ## 개요
 ### 1. 목적
 학교 식당에서 **식권 구매와 동시에 좌석을 예약**할 수 있는 시스템입니다.  
@@ -55,7 +53,8 @@
 | 구매 화면 | ![Calculation](src/img/ResultImg/Result2.PNG)  |
 | 결과 화면 | ![Calculation](src/img/ResultImg/Result3.PNG)  |
 
-## 프로그램의 중요성 및 필요성
+
+## 프로그램 소개
 ### 1. 중요성
 - **효율적인 시간 관리**  
    점심시간은 학생들에게 식사와 휴식을 위한 소중한 시간입니다.  
@@ -317,6 +316,8 @@ classDiagram
 - 실시간 알림 서비스 구현
 - 통계 분석 기능 추가
 
+---
+
 ### 설치 및 실행 방법
 #### 필요 환경
 - Java JDK 17 이상
@@ -340,11 +341,15 @@ gradle build
 gradle run
 ```
 
+---
+
 ### 기술 스택
 - **언어:** Java 17
 - **데이터 처리:** Gson
 - **빌드 도구:** Gradle
 - **버전 관리:** Git
+
+---
 
 ### 문제 해결 (Troubleshooting)
 #### 자주 발생하는 문제
@@ -356,6 +361,7 @@ gradle run
     - 파일 권한 확인
     - JSON 파일 경로 확인
 
+---
 
 ### 기여 방법
 1. 리포지토리를 포크(Fork)합니다
@@ -370,6 +376,8 @@ gradle run
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+---
 
 ## 출처
 
