@@ -10,8 +10,8 @@ import java.awt.*;
  * 구매와 취소를 담당하는 프레임 클래스입니다.
  *
  * @author Ji Woo Park (gav705@naver.com)
- * @version v1.0.0
- * @since v0.0.2
+ * @version v1.0.2
+ * @since v1.0.0
  * <br>
  * {@code @created} 2024-11-11
  * {@code @lastModified} 2024-12-10
@@ -20,6 +20,7 @@ import java.awt.*;
  * <ul>
  *   <li>2024-11-11: 최초 생성</li>
  *   <li>2024-12-10: 영수증 화면 생성</li>
+ *   <li>2024-12-22: 아이콘 수정</li>
  * </ul>
  */
 public class PurchaseFrame extends JFrame {
@@ -30,6 +31,12 @@ public class PurchaseFrame extends JFrame {
         setTitle("구매 창");
         setSize(400, 480);
         setLocationRelativeTo(null);
+
+        // Icon 수정
+        ImageIcon icon = new ImageIcon("src/img/Icon/SeatReservationIcon.png");
+        Image image = icon.getImage();
+        Image scaledImage = image.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+        setIconImage(scaledImage);
 
         showLabel();
         showResult();

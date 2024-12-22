@@ -21,35 +21,6 @@ import javax.swing.*;
  *   <li>2024-12-16: 프로토타입 완성</li>
  * </ul>
  */
-
-/*
-  SeatReservation
-        │
-        ├── src.main.java
-        │       │
-        │       ├── com.Index.java
-        │       │
-        │       ├── SeatData
-        │       │    ├── SeatDataManager.java
-        │       │    └── SeatCondition.gson
-        │       │
-        │       ├── FramePack
-        │       │    ├── PurchaseFrame.java
-        │       │    └── BasicsFrame.java
-        │       │
-        │       ├── UiPack
-        │       │    ├── BuyBtn.java
-        │       │    ├── MakeBtn.java
-        │       │    └── SelectBtn.java
-        │       │
-        │       └── ActionListenerPack
-        │            ├── MakeFrameBtnAction.java
-        │            ├── BuyTicketAction.java
-        │            └── SelectedBtnAction.java
-        │
-        │
-        └──────── pom.xml
- */
 public class Index extends JFrame {
     public Index() {
         new BasicsFrame();
