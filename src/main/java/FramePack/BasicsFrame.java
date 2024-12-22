@@ -25,6 +25,7 @@ import java.util.List;
  *   <li>2024-11-11: 최초 생성</li>
  *   <li>2024-11-11: 좌석 버튼과 구매 버튼 생성</li>
  *   <li>2024-12-02: 구매 기능 생성</li>
+ *   <li>2024-12-22: 디자인 최종 수정</li>
  * </ul>
  */
 public class BasicsFrame extends JFrame {
@@ -43,11 +44,19 @@ public class BasicsFrame extends JFrame {
      * {@code @changelog}
      * <ul>
      *   <li>2024-11-11: 최초 생성</li>
+     *   <li>2024-12-22: 아이콘 수정</li>
      * </ul>
      */
     public BasicsFrame() {
         setTitle("좌석 선택");
         setSize(550, 550);
+
+        // Icon 수정
+        ImageIcon icon = new ImageIcon("src/img/Icon/SeatReservationIcon.png");
+        Image image = icon.getImage();
+        Image scaledImage = image.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+        setIconImage(scaledImage);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
